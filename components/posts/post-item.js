@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import classes from './post-item.module.css'
 const PostItem = (props) => {
-  const { title, image, excerpt, date, slug } = props.post
+  const { id, title, image, excerpt, date, slug } = props.post
 
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -11,12 +11,19 @@ const PostItem = (props) => {
     year: 'numeric',
   })
 
-  const imagePath = `/images/posts/${slug}/${image}`
+  const imagePath = `/images/posts/${image}`
+  const linkPath = `/posts/${slug}`
   return (
-    <li className={classes.post}>
-      <Link>
-        <div className={classes.Image}>
-          <Image src={imagePath} alt={title} width={400} height={300} />
+    <li className={classes.post} key={id}>
+      <Link href={linkPath}>
+        <div className={classes.image}>
+          <Image
+            src={imagePath}
+            alt={title}
+            width={300}
+            height={200}
+            layout='responsive'
+          />
         </div>
         <div className={classes.content}>
           <h3>{title}</h3>
