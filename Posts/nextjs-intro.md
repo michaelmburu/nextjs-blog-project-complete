@@ -8,6 +8,16 @@ excerpt: NextJs is a React Production Framework
 isFeatured: true
 ---
 
-# This is a title
+# Sample NextJs
+
+```js
+const basics = 'Hello World'
+
+function printBasics() {
+  console.log(basics)
+}
+
+printBasics()
+```
 
 This is some regular content with a [link](https://google.com)
